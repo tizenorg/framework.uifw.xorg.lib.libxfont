@@ -1,8 +1,8 @@
 
-Name:       libXfont
+Name:       libxfont
 Summary:    X.Org X11 libXfont runtime library
 Version:    1.4.3
-Release:    1
+Release:    2.17
 Group:      System/Libraries
 License:    MIT
 URL:        http://www.x.org
