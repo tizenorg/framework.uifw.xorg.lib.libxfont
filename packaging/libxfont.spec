@@ -7,6 +7,7 @@ Group:      System/Libraries
 License:    MIT
 URL:        http://www.x.org
 Source0:    http://xorg.freedesktop.org/releases/individual/lib/%{name}-%{version}.tar.gz
+Source1001: packaging/libxfont.manifest 
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(xorg-macros)
@@ -40,6 +41,7 @@ the legacy X11 font system development files
 
 
 %build
+cp %{SOURCE1001} .
 
 %reconfigure --disable-static \
     --enable-fc --enable-builtins --enable-pcfformat --enable-bdfformat --without-bzip2
@@ -62,6 +64,7 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest libxfont.manifest
 %defattr(-,root,root,-)
 # FIXME:  Missing README/INSTALL - should file bug upstream.
 #%doc AUTHORS COPYING README INSTALL ChangeLog NEWS
@@ -71,6 +74,7 @@ rm -rf %{buildroot}
 
 
 %files devel
+%manifest libxfont.manifest
 %defattr(-,root,root,-)
 %dir %{_includedir}/X11/fonts
 %{_includedir}/X11/fonts/bdfint.h
