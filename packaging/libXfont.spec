@@ -84,4 +84,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/X11/fonts/ftfuncs.h
 %{_libdir}/libXfont.so
 %{_libdir}/pkgconfig/xfont.pc
-
