@@ -22,7 +22,7 @@ X.Org X11 libXfont runtime library
 %package devel
 Summary: X.Org X11 libXfont development package
 Group: Development/Libraries
-Provides: libxfont-devel 
+Provides: libxfont-devel
 Requires: %{name} = %{version}-%{release}
 Requires: libfontenc-devel
 
@@ -41,7 +41,8 @@ make %{?jobs:-j%jobs}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
+mkdir -p %{buildroot}/usr/share/license
+cp -af COPYING %{buildroot}/usr/share/license/%{name}
 make install DESTDIR=$RPM_BUILD_ROOT
 
 # We intentionally don't ship *.la files
@@ -57,9 +58,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+/usr/share/license/%{name}
 # FIXME:  Missing README/INSTALL - should file bug upstream.
 #%doc AUTHORS COPYING README INSTALL ChangeLog NEWS
-%doc AUTHORS COPYING ChangeLog
+#%doc AUTHORS COPYING ChangeLog
 %{_libdir}/libXfont.so.1
 %{_libdir}/libXfont.so.1.4.1
 
