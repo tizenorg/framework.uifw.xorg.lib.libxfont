@@ -263,11 +263,11 @@ BufCompressedFill (BufFilePtr f)
     	/*
      	 * Generate the new entry.
      	 */
-	if ( (code=file->free_ent) < file->maxmaxcode && oldcode != -1) {
+    	if ( (code=file->free_ent) < file->maxmaxcode && oldcode != -1) {
 	    file->tab_prefix[code] = (unsigned short)oldcode;
 	    file->tab_suffix[code] = finchar;
 	    file->free_ent = code+1;
-	}
+    	}
 	/*
 	 * Remember previous code.
 	 */
